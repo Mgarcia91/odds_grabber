@@ -1,0 +1,25 @@
+%h2 Snooker
+
+- t = TwoWayChecker.new("http://www.oddschecker.com/snooker/snooker-coupon")
+- t.check!
+
+%table
+  %tr
+    %th First competitor
+    %th Odds
+    %th Second competitor
+    %th Odds
+    %th ROI
+    %th In play?
+  - t.matches.each do |match|
+    - color = nil
+    - if match[:probability] > 1
+      - color = match[:in_play] ? "yellow" : "red"
+    %tr{:class => color}
+      %td= match[:first_competitor]
+      %td= match[:first_odds]
+      %td= match[:second_competitor]
+      %td= match[:second_odds]
+      %td= match[:probability]
+      %td= match[:in_play] ? "IN PLAY" : ""
+  

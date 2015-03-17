@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OddsGrabber</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "Tennis", "/tennis" %>
+<%= link_to "Snooker", "/snooker" %>
+<%= yield :layout %>
+
+</body>
+</html>
